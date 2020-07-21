@@ -7,10 +7,8 @@
   "scripts": {
     "build": "vue-compile src -o dist",
     "prepublishOnly": "yarn build",
-    "dev:example": "saber example",
     "dev": "saber",
-    "build:example": "saber build example",
-		"generate": "saber build"
+		"build": "saber build"
   },
   "devDependencies": {
     "saber": "^0.10.4",
