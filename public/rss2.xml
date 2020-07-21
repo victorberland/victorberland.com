@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Victor Berland</title>
+        <link>https://victorberland.com</link>
+        <description>Write an awesome description for your new site here. You can edit this line in saber-config.yml. It will appear in your document head meta (for Google search results) site description.</description>
+        <lastBuildDate>Thu, 09 Jul 2020 20:26:06 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Saber</generator>
+        <copyright>All rights reserved</copyright>
+        <item>
+            <title><![CDATA[Ny vevstad]]></title>
+            <link>https://victorberland.com/ny-vevstad.html</link>
+            <guid>https://victorberland.com/ny-vevstad.html</guid>
+            <pubDate>Thu, 09 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Så dette er det nye vevstaden min. Ein langt etterlengta overhaling av sida mi som eigentleg heile vegen berre har blitt utsette. Men no som behov og interesser har forandra seg, har også vevstaden måtte tilpassa seg til å bli slik ho er i dag.
+]]></description>
+            <content:encoded><![CDATA[<p>Så dette er det nye vevstaden min. Ein langt etterlengta overhaling av sida mi som eigentleg heile vegen berre har blitt utsette. Men no som behov og interesser har forandra seg, har også vevstaden måtte tilpassa seg til å bli slik ho er i dag.</p> <p>Nokre få stikkord om korleis sida er strukturert gjev eit bilete på kva sida skal reflektera:</p> <ul><li><strong>Fokus på artiklar og blogg framfor individuelle prosjekt</strong></li></ul> <p>Når eg heller arbeider i byrå framfor frilans vil ikkje tidlegare prosjekt vera like relevante for gjester generelt på vevstaden. Artiklar om allslags tema eg har interesse for og eksperiment vil difor vera meir relevant.</p> <ul><li><strong>Ny retning innanfor kunst i nye medium samt meir kreative digitale prosjekt</strong></li></ul> <p>Med ei aukt interesse for kunst i nye medium (også kjend som &quot;new media art&quot; på engelsk) og nettlesaren som ein lett tilgjengeleg plattform for interessant visning av data og interaksjon gjennom t.d. vebbkamera er dette ein unik arena eg ynskjer svært å utforska meir.</p> <p>Designet her er i botn og grunn også minimalistisk for å setja bakgrunnen på framsida i fokus. Her kan eg gjera kva eg vil i Three.js og gjerne også kombinera det med spennande GLSL shaders etter kvart som eg blir betre på også det.</p> <p>Bak kulissene her finn me static site generatoren Saber som held genererer statiske HTML filer basert på markdown filene eg skriv. Dette blir foreløpig servert frå Netlify, men dette jobbar eg med å få flytta på sørvaren her heime så snart eg har fått utarbeida ein betre struktur på alle Docker containerane mine :-P</p> <p>Så abonner på RSS straumen for å halda deg oppdatert på når eg publiserer nye artiklar. Og har du eit emne du trur eg kan skriva noko spennande om eller berre vil seia &quot;hei&quot;, så send meg ein e-post til <a href="mailto:vb@victorberland.com">vb@victorberland.com</a></p> <p>And for all English-speakers, I will probably write quite a few of the posts in English as well, so there will be content for you as well.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>

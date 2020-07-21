@@ -1,0 +1,34 @@
+{
+  "name": "victorberland",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vue-compile src -o dist",
+    "prepublishOnly": "yarn build",
+    "dev:example": "saber example",
+    "dev": "saber",
+    "build:example": "saber build example",
+		"generate": "saber build"
+  },
+  "devDependencies": {
+    "saber": "^0.10.4",
+    "saber-plugin-feed": "^0.4.2",
+    "saber-plugin-query-posts": "^0.4.4",
+    "sass": "^1.22.12",
+    "sass-loader": "^8.0.0",
+    "vue-compile": "^0.6.0"
+  },
+  "dependencies": {
+    "@tweenjs/tween.js": "^18.6.0",
+    "three": "^0.118.3",
+    "tinydate": "^1.2.0",
+    "tween.js": "^16.6.0"
+  },
+  "peerDependencies": {
+    "saber": "^0.10.4",
+    "saber-plugin-feed": "^0.4.2",
+    "saber-plugin-query-posts": "^0.4.4"
+  }
+}

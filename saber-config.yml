@@ -1,0 +1,29 @@
+theme: ./src
+
+siteConfig:
+  title: Victor Berland
+  url: https://victorberland.com
+  author: Victor Berland
+  email: author@your-domain.com
+  description: Write an awesome description for your new site here. You can edit this line in saber-config.yml. It will appear in your document head meta (for Google search results) site description.
+
+themeConfig:
+  nav:
+    - text: Lab
+      link: /x.html
+    - text: Info
+      link: /victor.html
+  social:
+    twitter: _saberjs
+    github: egoist
+    rss: true
+
+permalinks:
+  post: /:slug.html
+
+plugins:
+  - resolve: saber-plugin-query-posts
+  - resolve: saber-plugin-feed
+    options: 
+      # atomFeed: true
+      rss2Feed: true
