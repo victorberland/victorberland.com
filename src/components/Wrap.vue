@@ -119,5 +119,12 @@ body {
 		}
 	}
 }
-
+@media(max-width: 700px) {
+	.post {
+		margin: 50px;
+		.post-content {
+			font-size: 16px;
+		}
+	}
+}
 </style>

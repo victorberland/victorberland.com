@@ -266,10 +266,6 @@ export default {
 .menu {
 	position: fixed;
 	bottom: 150px;
-
-	//top: 50%;
-	//transform: translateY(-50%);
-
 	right: 150px;
 	color: white;
 	ul {
@@ -297,5 +293,16 @@ export default {
 	backgroud: #efefef;
 	z-index: -1;
 	top: 0;
+}
+
+
+@media(max-width: 700px) {
+	.blog {
+		margin: 50px;
+	}
+	.menu {
+		bottom: 50px;
+		right: 50px;
+	}
 }
 </style>
