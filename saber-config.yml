@@ -4,8 +4,8 @@ siteConfig:
   title: Victor Berland
   url: https://victorberland.com
   author: Victor Berland
-  email: author@your-domain.com
-  description: Write an awesome description for your new site here. You can edit this line in saber-config.yml. It will appear in your document head meta (for Google search results) site description.
+  email: vb@victorberland.com
+  description: Victor Berland
 
 themeConfig:
   nav:
