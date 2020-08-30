@@ -200,25 +200,27 @@ export default {
 
 		
 		var animate = (frame) => {
-			requestAnimationFrame( animate );
-			TWEEN.update();
-			renderer.render( scene, camera );
+			if(!document.hidden) {
+				requestAnimationFrame( animate );
+				TWEEN.update();
+				renderer.render( scene, camera );
 
-			const tiltCoords = { x: camera.rotation.x, y: camera.rotation.y }
-			const tilt = new TWEEN.Tween(tiltCoords)
-					.to({
-						y: this.cursorX * -0.00008 - 0.35,
-						x: this.cursorY * -0.00005 + 0.07
-					}, 800)
-					.easing(TWEEN.Easing.Quadratic.Out)
-					.onUpdate(() => {
-						camera.rotation.x = tiltCoords.x
-						camera.rotation.y = tiltCoords.y
-					})
-					.start()
+				const tiltCoords = { x: camera.rotation.x, y: camera.rotation.y }
+				const tilt = new TWEEN.Tween(tiltCoords)
+						.to({
+							y: this.cursorX * -0.00008 - 0.35,
+							x: this.cursorY * -0.00005 + 0.07
+						}, 800)
+						.easing(TWEEN.Easing.Quadratic.Out)
+						.onUpdate(() => {
+							camera.rotation.x = tiltCoords.x
+							camera.rotation.y = tiltCoords.y
+						})
+						.start()
 
 
-			// cubeCamera.update(renderer, scene)
+				// cubeCamera.update(renderer, scene)
+			}
 		};
 
 		animate();
