@@ -298,11 +298,11 @@ export default {
 
 @media(max-width: 700px) {
 	.blog {
-		margin: 50px;
+		margin: 50px!important;
 	}
 	.menu {
-		bottom: 50px;
-		right: 50px;
+		bottom: 50px!important;
+		right: 50px!important;
 	}
 }
 </style>
