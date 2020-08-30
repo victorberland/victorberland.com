@@ -298,11 +298,19 @@ export default {
 
 @media(max-width: 700px) {
 	.blog {
-		margin: 50px!important;
+		margin: 40px!important;
+		ul {
+			li {
+				margin: 50px 0;
+				.post-link {
+					font-size: 16px;
+				}
+			}
+		}
 	}
 	.menu {
-		bottom: 50px!important;
-		right: 50px!important;
+		bottom: 40px!important;
+		right: 40px!important;
 	}
 }
 </style>

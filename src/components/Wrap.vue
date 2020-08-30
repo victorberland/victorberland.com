@@ -121,7 +121,7 @@ body {
 }
 @media(max-width: 700px) {
 	.post {
-		margin: 50px;
+		margin: 40px;
 		.post-content {
 			font-size: 16px;
 		}
