@@ -10,7 +10,7 @@ siteConfig:
 themeConfig:
   nav:
     - text: Lab
-      link: /x.html
+      link: /lab.html
     - text: Info
       link: /victor.html
   social:

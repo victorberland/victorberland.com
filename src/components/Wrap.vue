@@ -1,6 +1,9 @@
 <template>
   <div>
     <!-- <Header :siteTitle="siteTitle"/> -->
+		<header>
+			<saber-link to="/" class="back">/</saber-link>
+		</header>
 		<main>
 			<slot></slot>
     </main>
@@ -85,6 +88,17 @@ body {
 	background: #0D0D0D;
 	font-family: 'Montserrat', 'Avenir', 'Helvetica Neue', sans-serif;
 }
+header .back {
+	position: fixed;
+	left: 150px;
+	top: 50px;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	font-size: 18px;
+}
 .post {
 	margin: 150px;
 	max-width: 900px;
@@ -120,6 +134,13 @@ body {
 	}
 }
 @media(max-width: 700px) {
+	header .back {
+		right: 40px;
+		top: 40px;
+		padding-right: 0;
+		padding-left: 10px;
+		left: auto;
+	}
 	.post {
 		margin: 40px;
 		.post-content {
