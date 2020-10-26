@@ -3,4 +3,4 @@ title: Lab
 layout: lab
 ---
 
-- [First steps with vertex shaders; Blom](https://competent-franklin-ce1666.netlify.app/)
+- [Hand tracking explorations with vertex shader](https://thirsty-wing-f1641d.netlify.app/)
