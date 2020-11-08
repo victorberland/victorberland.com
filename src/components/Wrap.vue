@@ -66,7 +66,7 @@ export default {
     }
   },
 	mounted() {
-		(function(f, a, t, h, o, m){
+		/*(function(f, a, t, h, o, m){
 			a[h]=a[h]||function(){
 				(a[h].q=a[h].q||[]).push(arguments)
 			};
@@ -76,7 +76,7 @@ export default {
 			m.parentNode.insertBefore(o,m)
 		})(document, window, '//a.v4.is/tracker.js', 'fathom');
 		fathom('set', 'siteId', 'ABEUX');
-		fathom('trackPageview');
+		fathom('trackPageview');*/
 	}
 }
 </script>

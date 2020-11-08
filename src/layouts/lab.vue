@@ -11,7 +11,7 @@
 			<div class="gradient" v-show="gradientShow"></div>
 		</transition>
 
-		<div class="scene"></div>
+		<!-- <div class="scene"></div> -->
   </Wrap>
 </template>
 
@@ -211,7 +211,7 @@ export default {
 			// cubeCamera.update(renderer, scene)
 		};
 
-		animate();
+		// animate();
 	}
 }
 </script>
@@ -234,7 +234,8 @@ export default {
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background-image: linear-gradient(to bottom right, rgba(0,0,0,0.4), transparent);
+	//background-image: linear-gradient(to bottom right, rgba(0,0,0,0.4), transparent);
+	background-image: linear-gradient(to top left, rgba(#111111,1), transparent);
 	top: 0;
 	z-index: -1;
 }

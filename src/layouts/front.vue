@@ -54,6 +54,14 @@ void main() {
 import * as THREE from 'three'
 import * as TWEEN from 'tween.js'
 
+import { EffectComposer } from '../../public/three.js/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '../../public/three.js/examples/jsm/postprocessing/RenderPass.js';
+import { FilmPass } from '../../public/three.js/examples/jsm/postprocessing/FilmPass.js';
+import { BokehPass } from '../../public/three.js/examples/jsm/postprocessing/BokehPass.js';
+import { AfterimagePass } from '../../public/three.js/examples/jsm/postprocessing/AfterimagePass.js';
+
+
+
 import Wrap from '../components/Wrap.vue'
 import formatDate from '../utils/formatDate'
 
@@ -90,47 +98,99 @@ export default {
 
 
 		var scene = new THREE.Scene()
-		// scene.background = new THREE.Color(0xeeeeee)
+		scene.background = new THREE.Color(0x2E112D)
+		scene.fog = new THREE.Fog(0x2E112D, 0, 9);
 
 		var renderer = new THREE.WebGLRenderer();
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		document.querySelector('.scene').appendChild( renderer.domElement );
 
 
+
 		let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 )
 		camera.position.x = -2
-		camera.position.z = 10;
+		// camera.position.z = 5;
 		// camera.rotation.x = -0.1
 		camera.rotation.y = -0.3
-		camera.position.y = 5;
+		camera.position.y = 4;
+
+
+		const composer = new EffectComposer( renderer );
+		composer.addPass( new RenderPass( scene, camera ) );
+
+		let afterimagePass = new AfterimagePass();
+		afterimagePass.uniforms[ "damp" ].value = 0.98
+		composer.addPass( afterimagePass );
+
+		const bokehPass = new BokehPass( scene, camera, {
+					focus: 1.0,
+					aperture: 0.5,
+					maxblur: 0.1,
+
+					width: 10,
+					height: 10
+				} );
+		// composer.addPass(bokehPass)
+		// afterimagePass.uniforms[ "damp" ].value = 0.99
+
+		const filmPass = new FilmPass(
+			0.4,   // noise intensity
+			0,  // scanline intensity
+			0,    // scanline count
+			false,  // grayscale
+		);
+		filmPass.renderToScreen = true;
+		composer.addPass(filmPass);
 
 
 
 
 		// let light1Col = 0x00ff00
-		let light1Col = 0x0c7ff9
+		let light1Col = 0x540032
 		let light1 = new THREE.PointLight( light1Col, 1, 40 );
-		light1.position.set( -17, 5, -4 );
+		light1.position.set( -10, 10, 8 );
 		scene.add( light1 );
 
 		// let light2Col = 0xff6600
-		let light2Col = 0xf90794
+		let light2Col = 0x820333
 		let light2 = new THREE.PointLight( light2Col, 1, 60 );
-		light2.position.set( 17, 5, -6 );
+		light2.position.set( 17, 10, -5 );
 		scene.add( light2 );
 
+
+
+
+			var terrainGeometry = new THREE.SphereGeometry( 8,10, 40 );
+			let terrainMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide, shading: THREE.SmoothShading } );
+			let materialShader
+
+			terrainMaterial.onBeforeCompile = (shader) => {
+				shader.uniforms.time = { value: 0}
+				shader.uniforms.intensity = { value: 0.5 }
+				shader.uniforms.amount = { value: 5 }
+				shader.vertexShader = `
+					uniform float time;
+					uniform float intensity;
+					uniform float amount;
+					` + shader.vertexShader
+				const token = '#include <begin_vertex>'
+				const customTransform = `
+					vec3 transformed = vec3(position);
+					transformed.x = position.x + sin(position.y*amount + time*0.1)*(intensity * 2.0);
+					transformed.y = position.y + sin(position.x*amount + time*0.1)*(intensity * 0.1);
+					// transformed.y = position.y + sin(position.y*intensity + time*0.5)*0.5;
+					transformed.z = position.z - sin(position.z*amount + time*0.2)*(intensity * 0.1);
+				`
+				shader.vertexShader = shader.vertexShader.replace(token,customTransform)
+				materialShader = shader
+			}
+
+			let terrain = new THREE.Mesh( terrainGeometry, terrainMaterial );
+			terrain.geometry.computeVertexNormals(true);
+			terrain.position.z = -3
+			scene.add( terrain );
 		
-		let width = 40
-		let height = 45
-		let depth = 20
-
-		var roomMaterial = new THREE.MeshPhysicalMaterial( {
-			color: 0x3E38F2,
-			side: THREE.DoubleSide,
-			roughness: 0.8,
-			reflectivity: 1
-		} );
-
+		
     //
 		// let cubeCamera = new THREE.CubeCamera(1, 100, 256);
 		// cubeCamera.position.set(0,1,10)
@@ -145,65 +205,21 @@ export default {
     //
 
 
-		let groundGeometry = new THREE.PlaneGeometry( width, depth, 1 );
-		let ground = new THREE.Mesh(groundGeometry, roomMaterial )
-		// let ground = new THREE.Mesh(wallGeometry, material )
-		ground.rotateX( - Math.PI / 2 );
-		scene.add( ground );
-
-
-		let wallGeometry = new THREE.PlaneGeometry( depth, height, 1 );
-		let wall = new THREE.Mesh(wallGeometry, roomMaterial )
-		// let ground = new THREE.Mesh(wallGeometry, material )
-		wall.rotateY( - Math.PI / 2 );
-		wall.position.x = 20
-		wall.position.y = 5
-		scene.add( wall );
-
-
-		function vertexShader() {
-			return `
-				varying vec2 vUv;
-
-				void main() {
-
-					vUv = uv;
-					gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-
-				}
-			`
-		}
-
-		function fragmentShader() { 
-			return `
-				varying vec2 vUv;
-
-				void main() {
-
-					gl_FragColor = vec4( vec3( vUv, 1.0 ), 1.0 );
-
-				}
-			`
-		}
-
-
-		var portalGeometry = new THREE.PlaneGeometry( width, height, 1 );
-		let portalMaterial = new THREE.ShaderMaterial( {
-			vertexShader: vertexShader(),
-			fragmentShader: fragmentShader()
-		} );
-		// var portalMaterial = new THREE.MeshBasicMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
-		var portal = new THREE.Mesh( portalGeometry, portalMaterial );
-		portal.position.z = -5
-		portal.position.y = 5
-		scene.add( portal );
-
-		
 		var animate = (frame) => {
 			if(!document.hidden) {
 				requestAnimationFrame( animate );
 				TWEEN.update();
-				renderer.render( scene, camera );
+				composer.render();
+
+				if(materialShader) {
+					materialShader.uniforms.time.value = frame/400
+					materialShader.uniforms.intensity.value = this.cursorX / 100 + 10
+					// materialShader.uniforms.amount.value = this.cursorY / 100
+				}
+
+				camera.position.z = this.cursorX / 800 + 9
+
+				// renderer.render( scene, camera );
 
 				const tiltCoords = { x: camera.rotation.x, y: camera.rotation.y }
 				const tilt = new TWEEN.Tween(tiltCoords)
@@ -216,7 +232,7 @@ export default {
 							camera.rotation.x = tiltCoords.x
 							camera.rotation.y = tiltCoords.y
 						})
-						.start()
+						// .start()
 
 
 				// cubeCamera.update(renderer, scene)

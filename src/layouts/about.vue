@@ -10,7 +10,7 @@
 			<div class="gradient" v-show="gradientShow"></div>
 		</transition>
 
-		<div class="scene"></div>
+		<!-- <div class="scene"></div> -->
   </Wrap>
 </template>
 
@@ -210,7 +210,7 @@ export default {
 			// cubeCamera.update(renderer, scene)
 		};
 
-		animate();
+		// animate();
 	}
 }
 </script>

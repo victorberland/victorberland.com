@@ -3,11 +3,29 @@
     <channel>
         <title>Victor Berland</title>
         <link>https://victorberland.com</link>
-        <description>Write an awesome description for your new site here. You can edit this line in saber-config.yml. It will appear in your document head meta (for Google search results) site description.</description>
-        <lastBuildDate>Thu, 09 Jul 2020 20:26:06 GMT</lastBuildDate>
+        <description>Victor Berland</description>
+        <lastBuildDate>Sat, 07 Nov 2020 19:55:59 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Saber</generator>
         <copyright>All rights reserved</copyright>
+        <item>
+            <title><![CDATA[Bern-art.no]]></title>
+            <link>https://victorberland.com/bern-art.html</link>
+            <guid>https://victorberland.com/bern-art.html</guid>
+            <pubDate>Sun, 13 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+]]></description>
+            <content:encoded><![CDATA[<p><video src="https://s.v4.is/victorberland.com/bern-art/bern-art-ny-webside.mp4" controls="controls" style="max-width:600px;"></video></p> <p><a rel="noopener noreferrer" target="_blank" href="https://bern-art.no">https://bern-art.no</a></p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Changing the way we think about web design]]></title>
+            <link>https://victorberland.com/changing-thinking-web-design.html</link>
+            <guid>https://victorberland.com/changing-thinking-web-design.html</guid>
+            <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[With the toolkit of the web developer being more cabable of creating unique web experiences than ever before, it's strange to look at a lot of websites on the web today and see that a lot of them follow a common structure and layout. Navigation bar at the top and some blocks of various forms of content filling the view as you scroll further down the page, seems familiar? And then have a look at any local newspaper, although different, the inherent way of consuming the content solely relies on the user's vision going downwards as if the entire webpage was just a fancy article.
+]]></description>
+            <content:encoded><![CDATA[<p>With the toolkit of the web developer being more cabable of creating unique web experiences than ever before, it's strange to look at a lot of websites on the web today and see that a lot of them follow a common structure and layout. Navigation bar at the top and some blocks of various forms of content filling the view as you scroll further down the page, seems familiar? And then have a look at any local newspaper, although different, the inherent way of consuming the content solely relies on the user's vision going downwards as if the entire webpage was just a fancy article.</p> <p>This way of designing doesn't take into account the newfound possibilities technologies such as WebGL brings us, nor is user interaction and engagement a part of the design. Yes, microinteractions are common on so-called &quot;normcore&quot; sites, but a pulsing button to read more or a &quot;like&quot; button isn't going to be what's ultimately engaging the user and creating a fun experience.</p> <p>Turning our websites into web experiences requires us to look at the fundemental ways humans sense and percieve the world around us and incorporate the clues from this into the digital experiences. Such may be the usage of the Z-axis in scroll, and not just X and Y, adding a bridge with the real world through AR and use the user's surroundings as part of the experience, using the client's product (the concept of time, process and the pouring motion for a wine for example) or using user input through various means (trackpad, keyboard, webcam etc.) to modify the page in a way that is intuitive.</p> <p>The concept of intuition used here I must precise is intuition received through interactions with nature and physical objects in the real world, and not intutions exposure to flat 2D websites has given us.</p> <p>This way of thinking about design does however have its drawbacks and is not applicable to all forms of websites either. As you may see on this blog, the design is purely flat and minimal with very little usage of the above mentioned principles. And honestly, it probably wouldn't have been a good reading experience if there were a thousand things happening in the background and as you moved your cursor or scrolled. The good use cases are up to each designer to evaluate on where applying this way of thinking may actually contribute to the experience and be fit for the client.</p> <p>There is also the aspect of performance and how we look at the consumerist economy. Because increased usage of expensive effects will result in people replacing their hardware more frequently as websites demand more and more. Here again, looking at the context is important; a campaign for an art gallery will have to be treated differently than the main site of the national tax bureau for example. Luke Smith <a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/watch?v=V7lG4bont7g">has a very good video</a> about the topic of performance.</p> <p>I'm really eager to hear others' thoughts about the matter, comment section is my e-mail :-P</p> <p>And if you would like to read up (or watch) more on the subject, here are a some links to start with:</p> <ul><li><a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/watch?v=qk7UQAGmqzs">https://www.youtube.com/watch?v=qk7UQAGmqzs</a></li> <li><a rel="noopener noreferrer" target="_blank" href="https://www.webdesignerdepot.com/2020/07/why-do-websites-look-the-same-and-should-we-care/">https://www.webdesignerdepot.com/2020/07/why-do-websites-look-the-same-and-should-we-care/</a></li></ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Ny vevstad]]></title>
             <link>https://victorberland.com/ny-vevstad.html</link>
