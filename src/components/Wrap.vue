@@ -103,6 +103,10 @@ header .back {
 	margin: 150px;
 	max-width: 900px;
 	color: #ffffff;
+	img {
+		max-width: 100%;
+		height: auto;
+	}
 	.post-title {
 		font-size: 18px;
 		text-transform: uppercase;
