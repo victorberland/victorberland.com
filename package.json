@@ -5,10 +5,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "vue-compile src -o dist",
+    "build": "saber build",
     "prepublishOnly": "yarn build",
-    "dev": "saber",
-		"build": "saber build"
+    "dev": "saber"
   },
   "devDependencies": {
     "saber": "^0.10.4",
