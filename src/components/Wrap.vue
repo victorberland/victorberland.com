@@ -101,7 +101,7 @@ header .back {
 }
 .post {
 	margin: 150px;
-	max-width: 900px;
+	max-width: 800px;
 	color: #ffffff;
 	img {
 		max-width: 100%;
@@ -118,9 +118,12 @@ header .back {
 	.post-content {
 		margin-top: 60px;
 		line-height: 220%;
-		font-size: 17px;
+		font-size: 16px;
 		letter-spacing: 0.2px;
 		font-weight: 400;
+		h2 {
+			margin-top: 40px;
+		}
 		a {
 			$link-color: rgba(255,255,255,0.2);
 			color: white;
