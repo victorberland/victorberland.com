@@ -1,6 +1,6 @@
 ---
 title: Making side projects into art projects
-date: 2020-01-06
+date: 2021-01-06
 layout: post
 ---
 
