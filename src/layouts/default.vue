@@ -1,65 +1,60 @@
 <template>
   <Wrap :page="page">
-    <div class="home">
-      <h1 class="page-heading" v-if="page.title">{{ page.title }}</h1>
-
-      <slot name="default"></slot>
-
-      <h2
-        class="post-list-heading"
-        v-if="page.posts && page.posts.length > 0"
-      >{{ page.listTitle || 'Posts' }}</h2>
-
-      <ul class="post-list" v-if="page.posts && page.posts.length > 0">
-        <li v-for="post in page.posts" :key="post.permalink">
-          <span class="post-meta">{{ formatDate(post.createdAt) }}</span>
-          <h3>
-            <saber-link
-              class="post-link"
-              :to="post.permalink"
-            >{{ post.title }}</saber-link>
-          </h3>
-        </li>
-      </ul>
-
-      <div
-        class="pagination"
-        v-if="page.pagination && (page.pagination.hasNext || page.pagination.hasPrev)"
-      >
-        <router-link
-          class="prev-link"
-          :to="page.pagination.prevLink"
-          v-if="page.pagination.hasPrev"
-        >← Previous</router-link>
-        <router-link
-          class="next-link"
-          :to="page.pagination.nextLink"
-          v-if="page.pagination.hasNext"
-        >Next →</router-link>
+    <article class="post lab">
+      <div class="post-content">
+				<h1 class="post-title">{{ page.title}}</h1>
+        <slot name="default"></slot>
       </div>
+    </article>
 
-      <p class="feed-subscribe" v-if="feedLink">
-        <svg class="svg-icon orange">
-          <use :xlink:href="getSvg('rss')"></use>
-        </svg>
-        <a :href="feedLink">Subscribe</a>
-      </p>
-    </div>
+		<transition name="fade">
+			<div class="gradient" v-show="gradientShow"></div>
+		</transition>
+
+		<!-- <div class="scene"></div> -->
   </Wrap>
 </template>
 
+<script type="x-shader/x-vertex" id="vertexShader">
+varying vec2 vUv;
+
+void main() {
+
+  vUv = uv;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+}
+</script>
+
+<script type="x-shader/x-vertex" id="fragmentShader">
+varying vec2 vUv;
+
+void main() {
+
+  // colour is RGBA: u, v, 0, 1
+  gl_FragColor = vec4( vec3( vUv, 0. ), 1. );
+
+}
+</script>
+
+
+
 <script>
-import formatDate from '../utils/formatDate'
+import * as THREE from 'three'
+import * as TWEEN from 'tween.js'
+
 import Wrap from '../components/Wrap.vue'
-import getSvg from '../utils/getSvg'
 
 export default {
   components: {
-    Wrap
+		Wrap,
   },
 
   props: ['page'],
-
+	data() {
+		return {
+		}
+	},
   computed: {
     feedLink() {
       return this.$feed && this.$feed.permalink
@@ -67,8 +62,49 @@ export default {
   },
 
   methods: {
-    formatDate,
-    getSvg
-  }
+  },
+
+	mounted() {
+	}
 }
 </script>
+
+<style lang="scss">
+.lab {
+	.post-content {
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li {
+				font-size: 18px;
+			}
+		}
+	}
+}
+
+.gradient {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	//background-image: linear-gradient(to bottom right, rgba(0,0,0,0.4), transparent);
+	background-image: linear-gradient(to top left, rgba(#111111,1), transparent);
+	top: 0;
+	z-index: -1;
+}
+.scene {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	backgroud: #efefef;
+	z-index: -2;
+	top: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .7s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>

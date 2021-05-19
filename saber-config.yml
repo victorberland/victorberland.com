@@ -9,6 +9,8 @@ siteConfig:
 
 themeConfig:
   nav:
+    - text: App
+      link: /app.html
     - text: Lab
       link: /lab.html
     - text: Info
@@ -24,6 +26,6 @@ permalinks:
 plugins:
   - resolve: saber-plugin-query-posts
   - resolve: saber-plugin-feed
-    options: 
+    options:
       # atomFeed: true
       rss2Feed: true
